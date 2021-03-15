@@ -170,8 +170,8 @@ class MyGame(ShowBase):
             self.playerProjectileColliderNode = CollisionNode("player_projectile")
             self.playerProjectileColliderNode.addSolid(CollisionSphere(0.5, 0, 0.2, 1))
             self.projectileCollider = self.projectile.attachNewNode(self.playerProjectileColliderNode)
+            base.pusher.addCollider(self.projectileCollider, self.projectile)
             base.cTrav.addCollider(self.projectileCollider, self.pusher)
-            # base.pusher.addCollider(self.projectileCollider, self.projectile)
             # self.projectileCollider.show()
 
             self.trajectory = ProjectileInterval(self.projectile, duration=1, startPos=(pos.x - 1, pos.y + 3, pos.z),
